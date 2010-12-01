@@ -15,15 +15,18 @@ $(document).ready(function(){
 
 		$(item).attr("default-text", default_text_item[item]); // Beacuse you cannot get 'item' inside the each loop
 		$(item).attr("value", default_text_item[item]);
+		$(item).addClass("default-text");
 		
 		$(item).focus(function () {
 			if($(this).attr("value")===$(this).attr("default-text")){
 				$(this).attr("value", "");
+				$(this).removeClass("default-text");
 			}
 		}); 
 		$(item).blur(function () {
 			if($(this).attr("value")===""){
 				$(this).attr("value", $(this).attr("default-text"));
+				$(this).addClass("default-text");
 			}
 		});
 	}
